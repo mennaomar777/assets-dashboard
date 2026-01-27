@@ -3,14 +3,7 @@ import React from "react";
 
 export default function AssetsTable({ assets }: { assets: AssetType[] }) {
   return (
-    <div className="my-3">
-      <div className="bg-blue-50  px-6 py-4 border-b  border-gray-300">
-        <h2 className="text-xl font-semibold text-gray-800">Assets Overview</h2>
-        <p className="text-sm text-gray-600 mt-1">
-          Total assets: {assets.length}
-        </p>
-      </div>
-
+    <div>
       <table className="w-full shadow-lg my-5">
         <thead className="bg-gray-50">
           <tr>
