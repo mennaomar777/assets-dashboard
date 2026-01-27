@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function sort() {
-  return <div>sort</div>;
+export default function Sort() {
+  return <div>Sort</div>;
 }
