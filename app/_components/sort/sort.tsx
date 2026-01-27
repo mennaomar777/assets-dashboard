@@ -19,9 +19,7 @@ export default function Sort({ onSort }: { onSort: (value: string) => void }) {
         "
         onChange={(e) => onSort(e.target.value)}
       >
-        <option value="" disabled>
-          Sort by
-        </option>
+        <option value="">Sort by</option>
         <option value="price-asc">Price: Low to High</option>
         <option value="price-desc">Price: High to Low</option>
         <option value="change-asc">Change: Low to High</option>

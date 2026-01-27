@@ -8,18 +8,23 @@ import Filter from "./_components/Filter/Filter";
 export default function Home() {
   const [assets, setAssets] = useState<AssetType[]>(data);
   const [sortBy, setSortBy] = useState<string>("");
+  const [filterBy, setFilterBy] = useState<string>("");
+  let newAssets: AssetType[] = [...assets];
 
   // Sort
-  let sortedAssets: AssetType[] = [...assets];
 
   if (sortBy === "price-asc")
-    sortedAssets = sortedAssets.sort((a, b) => a.price - b.price);
+    newAssets = newAssets.sort((a, b) => a.price - b.price);
   if (sortBy === "price-desc")
-    sortedAssets = sortedAssets.sort((a, b) => b.price - a.price);
+    newAssets = newAssets.sort((a, b) => b.price - a.price);
   if (sortBy === "change-asc")
-    sortedAssets = sortedAssets.sort((a, b) => a.change - b.change);
+    newAssets = newAssets.sort((a, b) => a.change - b.change);
   if (sortBy === "change-desc")
-    sortedAssets = sortedAssets.sort((a, b) => b.change - a.change);
+    newAssets = newAssets.sort((a, b) => b.change - a.change);
+
+  // Filter
+  if (filterBy)
+    newAssets = newAssets.filter((asset) => asset.category === filterBy);
 
   return (
     <main>
@@ -35,11 +40,11 @@ export default function Home() {
           </div>
           <div className="flex justify-between items-center gap-3">
             <Sort onSort={setSortBy} />
-            <Filter />
+            <Filter onFilter={setFilterBy} />
           </div>
         </div>
 
-        <AssetsTable assets={sortedAssets} />
+        <AssetsTable assets={newAssets} />
       </div>
     </main>
   );
