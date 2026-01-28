@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AssetsTable from "./_components/AssetsTable/AssetsTable";
 import { data } from "./_lib/data";
 import { AssetType } from "./_interfaces/asset";
@@ -12,6 +12,25 @@ export default function Home() {
   const [filterBy, setFilterBy] = useState<string>("");
   const [search, setSearch] = useState("");
   let newAssets: AssetType[] = [...assets];
+
+  // Real-Time Assets
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAssets((prevAssets) =>
+        prevAssets.map((asset) => {
+          const newPrice = Number(asset.price + (Math.random() * 4 - 2));
+          const newChange = Number(
+            ((newPrice - asset.price) / asset.price) * 100,
+          );
+          return { ...asset, price: newPrice, change: newChange };
+        }),
+      );
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   // Sort
   if (sortBy === "price-asc")

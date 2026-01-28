@@ -10,12 +10,12 @@ export default function Search({
 
   // Debounce
   useEffect(() => {
-    const period = setTimeout(() => {
+    const timer = setTimeout(() => {
       onSearch(value);
-    }, 500);
+    }, 900);
 
     return () => {
-      clearTimeout(period);
+      clearTimeout(timer);
     };
   }, [value, onSearch]);
 
