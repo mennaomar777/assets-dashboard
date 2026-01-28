@@ -20,7 +20,7 @@ export default function Search({
   }, [value, onSearch]);
 
   return (
-    <div>
+    <div className="w-2/3 md:w-full">
       <input
         type="search"
         className="
@@ -30,7 +30,7 @@ export default function Search({
         text-sm
         focus:outline-none
         focus:ring-2 focus:ring-blue-400
-        w-70
+        w-full
       "
         placeholder="Search assets..."
         value={value}

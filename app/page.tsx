@@ -18,9 +18,11 @@ export default function Home() {
     const interval = setInterval(() => {
       setAssets((prevAssets) =>
         prevAssets.map((asset) => {
-          const newPrice = Number(asset.price + (Math.random() * 4 - 2));
+          const newPrice = Number(
+            (asset.price + (Math.random() * 4 - 2)).toFixed(2),
+          );
           const newChange = Number(
-            ((newPrice - asset.price) / asset.price) * 100,
+            (((newPrice - asset.price) / asset.price) * 100).toFixed(2),
           );
           return { ...asset, price: newPrice, change: newChange };
         }),
@@ -55,7 +57,7 @@ export default function Home() {
   return (
     <main>
       <div className="container mx-auto max-w-[90%]">
-        <div className="bg-blue-50 mt-3 px-6 py-4 border-b  border-gray-300 flex justify-between items-center">
+        <div className="bg-blue-50 mt-3 px-6 py-4 border-b  rounded-xl border-gray-300 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
               Assets Overview
@@ -64,10 +66,10 @@ export default function Home() {
               Total assets: {assets.length}
             </p>
           </div>
-          <div>
+          <div className="w-full md:w-1/3">
             <Search onSearch={setSearch} />
           </div>
-          <div className="flex justify-between items-center gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
             <Sort onSort={setSortBy} />
             <Filter onFilter={setFilterBy} />
           </div>
