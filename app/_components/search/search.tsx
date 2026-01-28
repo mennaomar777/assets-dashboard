@@ -1,10 +1,24 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 export default function Search({
   onSearch,
 }: {
   onSearch: (value: string) => void;
 }) {
+  const [value, setValue] = useState("");
+
+  // Debounce
+  useEffect(() => {
+    const period = setTimeout(() => {
+      onSearch(value);
+    }, 500);
+
+    return () => {
+      clearTimeout(period);
+    };
+  }, [value, onSearch]);
+
   return (
     <div>
       <input
@@ -19,7 +33,8 @@ export default function Search({
         w-70
       "
         placeholder="Search assets..."
-        onChange={(e) => onSearch(e.target.value)}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
       />
     </div>
   );
