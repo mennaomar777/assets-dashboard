@@ -23,6 +23,7 @@ export default function Search({
     <div className="w-2/3 md:w-full">
       <input
         type="search"
+        aria-label="Search assets"
         className="
         px-4 py-2
         rounded-lg

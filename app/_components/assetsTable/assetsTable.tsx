@@ -46,12 +46,12 @@ export default function AssetsTable({ assets }: { assets: AssetType[] }) {
                   </span>
                 </td>
                 <td className="px-6 py-4 font-semibold text-sm text-gray-900">
-                  ${asset.price}
+                  ${asset.price.toFixed(2)}
                 </td>
                 <td
                   className={`px-6 py-4 font-semibold text-sm ${asset.change > 0 ? "text-green-600" : "text-red-600"} `}
                 >
-                  {asset.change}%
+                  {asset.change.toFixed(2)}%
                 </td>
               </tr>
             ))}

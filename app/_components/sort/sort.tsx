@@ -4,6 +4,7 @@ export default function Sort({ onSort }: { onSort: (value: string) => void }) {
   return (
     <div>
       <select
+        aria-label="Sort assets"
         className="
           px-4 py-2
           rounded-lg

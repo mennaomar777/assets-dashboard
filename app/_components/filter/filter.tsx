@@ -8,6 +8,7 @@ export default function Filter({
   return (
     <div>
       <select
+        aria-label="Filter assets"
         className="
           px-4 py-2
           rounded-lg

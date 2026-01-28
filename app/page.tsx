@@ -18,11 +18,9 @@ export default function Home() {
     const interval = setInterval(() => {
       setAssets((prevAssets) =>
         prevAssets.map((asset) => {
-          const newPrice = Number(
-            (asset.price + (Math.random() * 4 - 2)).toFixed(2),
-          );
+          const newPrice = Number(asset.price + (Math.random() * 4 - 2));
           const newChange = Number(
-            (((newPrice - asset.price) / asset.price) * 100).toFixed(2),
+            ((newPrice - asset.price) / asset.price) * 100,
           );
           return { ...asset, price: newPrice, change: newChange };
         }),
