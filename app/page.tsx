@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import AssetsTable from "./_components/AssetsTable/AssetsTable";
+import AssetsTable from "./_components/assetsTable/AssetsTable";
 import { data } from "./_lib/data";
 import { AssetType } from "./_interfaces/asset";
-import Sort from "./_components/Sort/Sort";
-import Filter from "./_components/Filter/Filter";
-import Search from "./_components/Search/Search";
+import Sort from "./_components/sort/Sort";
+import Filter from "./_components/filter/Filter";
+import Search from "./_components/search/Search";
 export default function Home() {
   const [assets, setAssets] = useState<AssetType[]>(data);
   const [sortBy, setSortBy] = useState<string>("");
